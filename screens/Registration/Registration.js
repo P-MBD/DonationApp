@@ -6,7 +6,7 @@ import globalStyle from '../../assets/styles/globalStyle';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import BackButton from '../../components/BackButton/BackButton';
-
+import {createUser} from '../../api/user';
 const Registration = ({navigation})=> {
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
@@ -37,7 +37,9 @@ const Registration = ({navigation})=> {
           
                         </View>
                         <View>
-                            <Button  title={'Login'} />
+                            <Button  title={'Login'}
+                              onPress={async () => await createUser(fullName, email, password)}
+                             />
                         </View>
                       
                     </View>
